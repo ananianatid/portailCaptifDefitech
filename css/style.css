@@ -11,9 +11,9 @@ body,html {
     overflow-x:hidden;
 }
 
-/* MODIFICATION DU BACKGROUND AVEC L'IMAGE TECH */
+/* MODIFICATION DU BACKGROUND AVEC L'IMAGE TECH LOCALE */
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
