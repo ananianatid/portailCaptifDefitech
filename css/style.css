@@ -1,168 +1,121 @@
-/* --- RESET ET BASES --- */
-a, body, div, form, html, img, input, label, p, span {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* RESET ET BASES */
+a,body,div,form,html,img,input,label,p,span {
+    margin:0;
+    padding:0;
+    border:0;
+    font-family:sans-serif, Arial;
 }
 
-body, html {
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-    background-image: linear-gradient(rgb(0 0 255 / 0.5), rgb(255 255 0 / 0.5)),url("../img/bg.jpg");    
+body,html {
+    min-height:100%;
+    overflow-x:hidden;
 }
 
-/* --- BACKGROUND AVEC IMAGE DANS DOSSIER IMG --- */
+/* MODIFICATION DU BACKGROUND AVEC L'IMAGE TECH */
 body {
-    /* Overlay sombre (50%) + Image locale */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-color: #1a1a1a; /* Couleur de secours si l'image ne charge pas */
-    display: flex;
-    align-items: center;
+    background-color: #1a1a1a; /* Couleur de secours */
+}
+
+a { color:#486173; text-decoration: none; }
+input,label { vertical-align:middle; white-space:normal; background:0 0; line-height:1; }
+label { position:relative; display:block; }
+p::first-letter { text-transform:uppercase; }
+
+/* MISE EN PAGE PRINCIPALE */
+.main {
+    min-height:calc(100vh - 90px);
+    width:100%;
+    display:flex;
+    flex-direction:column;
     justify-content: center;
 }
 
-/* --- CONTENEUR PRINCIPAL (GLASSMORPHISM) --- */
-.wrap {
-    width: 100%;
-    max-width: 400px;
-    margin: 20px;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.1); /* Transparence blanche légère */
-    backdrop-filter: blur(12px); /* Effet de flou sur le background */
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-.container {
-    width: 100vw;
-    height: 100vh;
-}
-/* --- LOGO ET TITRE --- */
+.ie-fixMinHeight { display:flex; }
+.ico { height:16px; position:absolute; top:0; left:0; margin-top:13px; margin-left:14px; }
+
 .logo {
-    max-width: 180px;
-    height: auto;
-    margin-bottom: 25px;
+    max-width:200px;
+    display:block;
+    margin:0 auto 30px auto;
 }
 
-h1 {
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 30px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+.logo * { fill:#fff; }
+h1 { text-align:center; color:#fff; font-size:24px!important; margin-bottom: 20px; }
+
+/* FORMULAIRE ET WRAP */
+* { box-sizing:border-box; font-size:16px; }
+
+.wrap {
+    margin:auto;
+    padding:40px;
+    background: rgba(255, 255, 255, 0.1); /* Effet de transparence sur le cadre */
+    backdrop-filter: blur(10px); /* Flou artistique derrière le formulaire */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: width .3s ease-in-out;
 }
 
-/* --- MESSAGES D'ERREUR OU INFO --- */
-.info {
-    color: #ffffff;
-    font-size: 14px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 5px;
+@media only screen and (min-width:1px) and (max-width:575px){
+    .wrap { width:90%; padding: 20px; }
 }
 
-.info.alert {
-    background-color: rgba(218, 61, 65, 0.8);
+form { width:100%; margin-bottom:20px; }
+
+/* ANIMATIONS */
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.fadeIn { animation-name:fadeIn; }
+.animated { animation-duration:1s; animation-fill-mode:both; }
+
+.info { color:#fff; text-align:center; margin-bottom:30px; }
+
+/* INPUTS */
+input { outline:0; appearance:none; }
+input[type=password], input[type=text] {
+    width:100%;
+    border:1px solid rgba(255,255,255,0.4);
+    height:44px;
+    padding:3px 20px 3px 40px;
+    margin-bottom:20px;
+    border-radius:6px;
+    background-color:rgba(255,255,255,0.9);
+    transition: box-shadow .3s ease-in-out;
 }
 
-/* --- FORMULAIRE ET CHAMPS DE SAISIE --- */
-form {
-    width: 100%;
+input[type=password]:focus, input[type=text]:focus {
+    box-shadow:0 0 10px 0 rgba(0,183,255,0.5);
+    border: 1px solid #00b7ff;
 }
 
-input[type=text], input[type=password] {
-    width: 100%;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    padding: 0 15px;
-    font-size: 16px;
-    color: #333;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-    background: #ffffff;
-    box-shadow: 0 0 15px rgba(0, 183, 255, 0.4);
-    transform: scale(1.02);
-}
-
-/* --- BOUTON DE CONNEXION --- */
+/* BOUTON DE CONNEXION */
 input[type=submit] {
-    width: 100%;
-    height: 50px;
-    background: #0062cc;
-    color: white;
-    font-size: 18px;
+    background:#0056b3;
+    color:#fff;
+    border:0;
+    cursor:pointer;
+    text-align:center;
+    width:100%;
+    height:44px;
+    border-radius:6px;
     font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background .3s ease-in-out;
 }
 
-input[type=submit]:hover {
-    background: #004da3;
+input[type=submit]:focus, input[type=submit]:hover {
+    background:#004494;
 }
 
-input[type=submit]:active {
-    transform: scale(0.98);
-}
+/* TABLES DE STATUT (APRES CONNEXION) */
+table { border-collapse:collapse; width:100%; margin-bottom:20px; }
+table td { color:#fff; border-bottom:1px solid rgba(255,255,255,0.2); padding:10px 4px 10px 0; }
+table td:first-child { font-weight:700; }
 
-/* --- TABLEAU DE STATUT (POST-CONNEXION) --- */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-table td {
-    padding: 12px 5px;
-    color: #ffffff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: left;
-    font-size: 14px;
-}
-
-table td:first-child {
-    font-weight: bold;
-    color: #00d2ff;
-}
-
-/* --- LIENS ET FOOTER --- */
-a {
-    color: #00d2ff;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.footer {
-    margin-top: 30px;
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/* --- ADAPTATION MOBILE --- */
-@media (max-width: 480px) {
-    .wrap {
-        padding: 30px 20px;
-        margin: 10px;
-    }
-    h1 { font-size: 18px; }
+/* RESPONSIVE */
+@media (min-width:576px){
+    .wrap { width:410px; }
+    * { font-size:14px!important; }
 }
