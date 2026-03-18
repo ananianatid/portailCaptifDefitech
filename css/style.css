@@ -11,9 +11,9 @@ body,html {
     overflow-x:hidden;
 }
 
-/* MODIFICATION DU BACKGROUND AVEC L'IMAGE TECH LOCALE */
+/* MODIFICATION DU BACKGROUND AVEC L'IMAGE TECH LOCALE (VERSION ALLÉGÉE) */
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/bg-petite.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -62,6 +62,7 @@ h1 { text-align:center; color:#fff; font-size:24px!important; margin-bottom: 20p
 
 @media only screen and (min-width:1px) and (max-width:575px){
     .wrap { width:90%; padding: 20px; }
+    body { background-attachment: scroll; } /* Optimisation mobile : scroll fluide */
 }
 
 form { width:100%; margin-bottom:20px; }
