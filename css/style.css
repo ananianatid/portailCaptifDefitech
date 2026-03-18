@@ -1,0 +1,168 @@
+/* --- RESET ET BASES --- */
+a, body, div, form, html, img, input, label, p, span {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-image: linear-gradient(rgb(0 0 255 / 0.5), rgb(255 255 0 / 0.5)),url("../img/bg.jpg");    
+}
+
+/* --- BACKGROUND AVEC IMAGE DANS DOSSIER IMG --- */
+body {
+    /* Overlay sombre (50%) + Image locale */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #1a1a1a; /* Couleur de secours si l'image ne charge pas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- CONTENEUR PRINCIPAL (GLASSMORPHISM) --- */
+.wrap {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1); /* Transparence blanche légère */
+    backdrop-filter: blur(12px); /* Effet de flou sur le background */
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+/* --- LOGO ET TITRE --- */
+.logo {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 25px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* --- MESSAGES D'ERREUR OU INFO --- */
+.info {
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.info.alert {
+    background-color: rgba(218, 61, 65, 0.8);
+}
+
+/* --- FORMULAIRE ET CHAMPS DE SAISIE --- */
+form {
+    width: 100%;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 183, 255, 0.4);
+    transform: scale(1.02);
+}
+
+/* --- BOUTON DE CONNEXION --- */
+input[type=submit] {
+    width: 100%;
+    height: 50px;
+    background: #0062cc;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+input[type=submit]:hover {
+    background: #004da3;
+}
+
+input[type=submit]:active {
+    transform: scale(0.98);
+}
+
+/* --- TABLEAU DE STATUT (POST-CONNEXION) --- */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 12px 5px;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+    font-size: 14px;
+}
+
+table td:first-child {
+    font-weight: bold;
+    color: #00d2ff;
+}
+
+/* --- LIENS ET FOOTER --- */
+a {
+    color: #00d2ff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    margin-top: 30px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* --- ADAPTATION MOBILE --- */
+@media (max-width: 480px) {
+    .wrap {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    h1 { font-size: 18px; }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail Captif - IPD</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding: 50px; }
+        .login-box { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: inline-block; width: 300px; }
+        img { max-width: 150px; margin-bottom: 20px; }
+        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background-color: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .footer { margin-top: 20px; font-size: 12px; color: #777; }
+    </style>
+</head>
+<body>
+   <div class="container">
+     <div class="login-box">
+        <img src="img/logo.jpg" alt="Logo IPD">
+        <h3>Bienvenue sur le réseau IPD</h3>
+        
+        <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+            <input type="hidden" name="dst" value="$(link-orig)" />
+            <input type="hidden" name="popup" value="true" />
+            
+            <input name="username" type="text" placeholder="Nom d'utilisateur" required/>
+            <input name="password" type="password" placeholder="Mot de passe" required/>
+            
+            <button type="submit">Se connecter</button>
+        </form>
+        
+        <div class="footer">
+            © 2026 Institut Polytechnique Defitech<br>
+            Direction des Systèmes d'Information
+        </div>
+    </div>
+   </div>
+</body>
+</html>
